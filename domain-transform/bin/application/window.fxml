@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.WindowController">
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fx:id="imageViewSource" fitHeight="310.0" fitWidth="530.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="5.0" />
+               </GridPane.margin>
+            </ImageView>
+            <ImageView fx:id="cameraFrameViewSource" fitHeight="310.0" fitWidth="530.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="5.0" />
+               </GridPane.margin>
+            </ImageView>
+            <ImageView fx:id="imageViewTarget" fitHeight="310.0" fitWidth="530.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="5.0" />
+               </GridPane.margin>
+            </ImageView>
+            <ImageView fx:id="cameraFrameViewTarget" fitHeight="310.0" fitWidth="530.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="5.0" />
+               </GridPane.margin>
+            </ImageView>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Loaded Image" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Filtered Image" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Video Capture" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Filtered Video Capture" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+         </children>
+      </GridPane>
+   </center>
+   <bottom>
+		<TextField fx:id="textFieldCameraStatus" editable="false" promptText="Camera status:" text="Camera status:" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <TextField fx:id="textFieldImageStatus" editable="false" promptText="Image status:" text="Image status:" BorderPane.alignment="CENTER" />
+   </top>
+   <right>
+      <GridPane prefHeight="625.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Image Controls" textAlignment="CENTER" wrappingWidth="200.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Button fx:id="btnLoadImage" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#loadImage" prefHeight="25.0" prefWidth="200.0" text="Load Image">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnFilterImage" mnemonicParsing="false" onAction="#filterImage" prefHeight="25.0" prefWidth="200.0" text="Filter Image">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Text nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="Sigma Space" textAlignment="CENTER" wrappingWidth="200.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Slider fx:id="sliderImageSigmaSpace" layoutX="10.0" layoutY="396.0" majorTickUnit="10.0" max="200.0" min="10.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="60.0" />
+                  <Text layoutX="10.0" layoutY="460.0" nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="Sigma Range" textAlignment="CENTER" wrappingWidth="200.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Slider fx:id="sliderImageSigmaRange" blockIncrement="0.1" layoutX="10.0" layoutY="493.0" majorTickUnit="0.1" max="2.5" min="0.1" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="0.4">
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                  </Slider>
+                  <Button fx:id="btnRestartImage" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#restartImage" prefHeight="25.0" prefWidth="200.0" text="Restart Image">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Video Controls" textAlignment="CENTER" wrappingWidth="200.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                  </Text>
+            		<Button fx:id="btnCaptureVideo" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#captureVideo" prefHeight="25.0" prefWidth="200.0" text="Capture Video">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+                  <CheckBox fx:id="checkBoxFilterVideo" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Filter Video">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets right="30.0" />
+                     </padding>
+                  </CheckBox>
+                  <Text nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="Sigma Space" textAlignment="CENTER" wrappingWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Slider fx:id="sliderVideoSigmaSpace" disable="true" majorTickUnit="10.0" max="200.0" min="10.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="60.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Slider>
+                  <Text nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="Sigma Range" textAlignment="CENTER" wrappingWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Slider fx:id="sliderVideoSigmaRange" blockIncrement="0.1" disable="true" majorTickUnit="0.1" max="2.5" min="0.1" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="0.4">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Slider>
+                  <Button fx:id="btnRestartVideo" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#restartVideo" prefHeight="25.0" prefWidth="200.0" text="Restart Video">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+   </right>
+</BorderPane>
